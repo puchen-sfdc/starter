@@ -6,3 +6,18 @@ branches:
   - master
   - develop
 
+addons:
+  coverity_scan:
+    project:
+      name: "puchen/starter"
+      description: "Build submitted via Travis CI"
+    notification_email: pu.chen@salesforce.com
+    build_command_prepend: "mvn clean"
+    build_command:   "mvn -DskipTests=true install"
+    branch_pattern: master
+    
+before_script:
+  - pip install --user codecov
+
+after_success:
+  - codecov
