@@ -34,7 +34,7 @@ public class TestFormat {
             String formatteTime = df.format(datetime.getTime());
             
             //SimpleDateFormatICU aa = 
-            SimpleDateFormatICU
+            //SimpleDateFormatICU
             
             Date actualDate =  df.parse(formatteTime);
             

@@ -17,7 +17,7 @@ addons:
       description: Build submitted via Travis CI
     notification_email: pu.chen@salesforce.com
     build_command_prepend: mvn clean
-    build_command: mvn -DskipTests=true install
+    build_command: mvn install
     branch_pattern: master
 
 before_script:
