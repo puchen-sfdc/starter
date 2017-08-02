@@ -1,16 +1,10 @@
 language: java
 jdk: oraclejdk8
-
-branches:
-  only:
-  - master
-  - develop
-  - up
-
+services:
+- docker
 env:
   global:
-    secure: BsPS694vaSVjoh2BsiUYQczpaZDyMvkJc5ylXMs8CyMpZgDgEaS6autTYWjy5vxjuhhs160ZBZz7wThAkHM2Ftx57CUuj84wcFP5bocY7jnl0XsKTiCLrKB5Yg3Oz437pAEbF8fFCqp7Fg9cv7u8FlGPFU9ShvZcq6GhtNP1dT4hHL3AYpNMjKBCaJl3mSuKa3hThuquOK9cvJEmU6PXIsRyA9gMyJPdFHB3GT7CUs1gtXJ13JCP2gK9XhgK5pbpEsBMDF4VUVieIrnNT9cWD5WdDXHg7mL6ni+1ABZU8Ib64R2j/h1LWRIhdXJF8R9LO3BqQygZBZzQt8Isdqc593r8AozZEk5S/waxIX64mUa1bUFyS9WHO+ADnZ5CyDWhQNNtShOQAEryNkl27uPJWMQou01i61VVI3wVnVM1uz2mN3BLSZkHzskDlXfhokYzOxxeVyaxOjyXTYmo/6/E5oWSPTY6FzbpQZBNF9YJOry3PM0gevVTiHInOfGcN4wzJhDgYNAbTB2MQ97MtNejCcXiVYHqXcvyIh64aUaAOBV100ZoBWqa6/9LLRTtTiQsKvxTHMVhespQ95sX81/KBjcksMgepbekxXRcBApwNdy4Y6tmQLlRBT2A4NRyzqFDm8Sr6JxIu3jAOCbJPyBZ34Vi7SNvab/rIWp/eeytndE=
-
+  - secure: m7sft7lU+7sCuCksA2/2foZYEp7P0CGYqjH695PFNbg7iQffXJnqvmFffVkRM7lZAvqk+J1Lu5kiVBGBDNTztslgYl/QwOnQN53ENc07z/oPtDxNUELCwsEvA716b1HScp/Wciq4b0RhxwgEqd3vKw/60vUZJ1tipEVX3rg4BMu+PdRWTGiN3J0Wkf3ojg/NPzXcwQ6Qje5FqfgJMDyJKzCjfmWUfX+6LdaeUx0xtNDgJboc3YNdxquqWlhm1jk3H5V7IBCoCtPhN2JJJZvdfsKpDs08tVbRaiQATUgI1W/kLEAqcSjcFEmEmZcnRx1M1H1faqi/+/2/+qsR4xRfdBJw/k+m8iUh0bWTXgvBj0NDpPkhRUqhPalJM3ZMGCbOiXxjHUnT90W9/mpujsTL8gi6KYfluNZb1JYCbIUqfMe12LXoef3KOSf0dydh3tVuzcldM2r+ENQ7PIDwo/Dxiw5+i08s+7KFwsyGCZoUVBuujmcIyNpPVjqoPCp/IWFAhfDMu3zXgSahMGUefX1FjO2J2qnw7tnUPsi+2EVWjhxTXb0VTkdbQFwXKoRwmUm5MQ8dckIk6bAGAAi5tYFg2ZWUlSYwoaQR+xVzI0zLUUPV4npnwwEdqTR0hJwRjKcP08WhYgs0aVD82BXZ8pbeQHYuwbQcMhu8NAh58s0D7Mg=
 addons:
   coverity_scan:
     project:
@@ -20,9 +14,7 @@ addons:
     build_command_prepend: mvn clean
     build_command: mvn -DskipTests=true install
     branch_pattern: master
-
 before_script:
 - pip install --user codecov
-
 after_success:
 - codecov
