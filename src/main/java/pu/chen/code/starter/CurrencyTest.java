@@ -25,6 +25,8 @@ public class CurrencyTest {
 		NumberFormat nf = NumberFormat.getCurrencyInstance(locale);
 		
 		System.out.println(nf.format(112345.67));
+
+		System.out.println(nf.format(112345.67));
 		
 	}
 
