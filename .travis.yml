@@ -1,11 +1,8 @@
 language: java
 jdk: oraclejdk8
 
-branches:
-  only:
-  - master
-  - develop
-  - up
+services:
+  - docker
 
 env:
   global:
