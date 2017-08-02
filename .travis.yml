@@ -5,4 +5,24 @@ branches:
   only:
   - master
   - develop
+  - up
 
+env:
+  global:
+    secure: BsPS694vaSVjoh2BsiUYQczpaZDyMvkJc5ylXMs8CyMpZgDgEaS6autTYWjy5vxjuhhs160ZBZz7wThAkHM2Ftx57CUuj84wcFP5bocY7jnl0XsKTiCLrKB5Yg3Oz437pAEbF8fFCqp7Fg9cv7u8FlGPFU9ShvZcq6GhtNP1dT4hHL3AYpNMjKBCaJl3mSuKa3hThuquOK9cvJEmU6PXIsRyA9gMyJPdFHB3GT7CUs1gtXJ13JCP2gK9XhgK5pbpEsBMDF4VUVieIrnNT9cWD5WdDXHg7mL6ni+1ABZU8Ib64R2j/h1LWRIhdXJF8R9LO3BqQygZBZzQt8Isdqc593r8AozZEk5S/waxIX64mUa1bUFyS9WHO+ADnZ5CyDWhQNNtShOQAEryNkl27uPJWMQou01i61VVI3wVnVM1uz2mN3BLSZkHzskDlXfhokYzOxxeVyaxOjyXTYmo/6/E5oWSPTY6FzbpQZBNF9YJOry3PM0gevVTiHInOfGcN4wzJhDgYNAbTB2MQ97MtNejCcXiVYHqXcvyIh64aUaAOBV100ZoBWqa6/9LLRTtTiQsKvxTHMVhespQ95sX81/KBjcksMgepbekxXRcBApwNdy4Y6tmQLlRBT2A4NRyzqFDm8Sr6JxIu3jAOCbJPyBZ34Vi7SNvab/rIWp/eeytndE=
+
+addons:
+  coverity_scan:
+    project:
+      name: puchen/starter
+      description: Build submitted via Travis CI
+    notification_email: pu.chen@salesforce.com
+    build_command_prepend: mvn clean
+    build_command: mvn -DskipTests=true install
+    branch_pattern: master
+
+before_script:
+- pip install --user codecov
+
+after_success:
+- codecov
